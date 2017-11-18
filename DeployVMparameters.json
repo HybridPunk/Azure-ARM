@@ -18,7 +18,7 @@
             "value": "vnet_10.1.0.0_16"
         },
         "networkInterfaceName": {
-            "value": "test2729"
+            "value": "nic001"
         },
         "networkSecurityGroupName": {
             "value": "nsg_001"
