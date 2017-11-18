@@ -1,0 +1,39 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "northeurope"
+        },
+        "virtualMachineName": {
+            "value": "test2"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_B1s"
+        },
+        "adminUsername": {
+            "value": "rich"
+        },
+        "virtualNetworkName": {
+            "value": "vnet_10.1.0.0_16"
+        },
+        "networkInterfaceName": {
+            "value": "test2729"
+        },
+        "networkSecurityGroupName": {
+            "value": "nsg_001"
+        },
+        "adminPassword": {
+            "value": "R4ncidR4ncid"
+        },
+        "diagnosticsStorageAccountName": {
+            "value": "rg1diag263"
+        },
+        "diagnosticsStorageAccountId": {
+            "value": "/subscriptions/4decaee1-722f-4973-988b-971675db46c9/resourceGroups/rg_1/providers/Microsoft.Storage/storageAccounts/rg1diag263"
+        },
+        "subnetName": {
+            "value": "vlan_10.1.1.0_24"
+        }
+    }
+}
