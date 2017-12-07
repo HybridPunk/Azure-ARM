@@ -1,0 +1,46 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualNetworks_vnet_192.168.0.0_24_name": {
+            "defaultValue": "vnet_192.168.0.0_24",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/4decaee1-722f-4973-988b-971675db46c9/resourceGroups/rg3_test/providers/Microsoft.Network/virtualNetworks/vnet_192.168.0.0_24'.",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('virtualNetworks_vnet_192.168.0.0_24_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "northeurope",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "8fed32b5-ec56-4485-b749-10a4ccc3af58",
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "192.168.0.0/24"
+                    ]
+                },
+                "virtualNetworkPeerings": []
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/4decaee1-722f-4973-988b-971675db46c9/resourceGroups/rg3_test/providers/Microsoft.Network/virtualNetworks/vnet_192.168.0.0_24/subnets/sbn_192.168.0.0_24'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_vnet_192.168.0.0_24_name'), '/', parameters('subnets_sbn_192.168.0.0_24_name'))]",
+            "apiVersion": "2017-06-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "192.168.0.0/24"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_vnet_192.168.0.0_24_name'))]"
+            ]
+        }
+    ]
+}
