@@ -4,7 +4,7 @@
     "parameters": {
         "virtualNetworks_vnet_192.168.0.0_16_name": {
             "defaultValue": "vnet_192.168.0.0_16",
-            "type": "String"
+            "type": "string"
         }
     },
     "variables": {},
