@@ -1,0 +1,1 @@
+test-AzureRmResourceGroupDeployment -ResourceGroupName "rg3_test" -TemplateUri "https://github.com/HybridPunk/Azure-ARM/blob/master/DeployVnet/deployVnetTemplate.json" -TemplateParameterUri "https://github.com/HybridPunk/Azure-ARM/blob/master/DeployVnet/deployVnetParameters.json" -DeploymentDebugLogLevel All;
