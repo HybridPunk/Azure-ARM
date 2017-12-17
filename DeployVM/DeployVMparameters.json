@@ -5,6 +5,9 @@
         "location": {
             "value": "northeurope"
         },
+        "resourceGroup":{
+            "value": "rg3_test"
+        },
         "virtualMachineName": {
             "value": "test2"
         },
@@ -15,25 +18,16 @@
             "value": "rich"
         },
         "virtualNetworkName": {
-            "value": "vnet_10.1.0.0_16"
+            "value": "vnet_192.168.0.0_16"
         },
         "networkInterfaceName": {
-            "value": "nic001"
-        },
-        "networkSecurityGroupName": {
-            "value": "nsg_001"
+            "value": "test2_nic001"
         },
         "adminPassword": {
             "value": "R4ncidR4ncid"
         },
-        "diagnosticsStorageAccountName": {
-            "value": "rg1diag263"
-        },
-        "diagnosticsStorageAccountId": {
-            "value": "/subscriptions/4decaee1-722f-4973-988b-971675db46c9/resourceGroups/rg_1/providers/Microsoft.Storage/storageAccounts/rg1diag263"
-        },
         "subnetName": {
-            "value": "vlan_10.1.1.0_24"
+            "value": "sbn_192.168.1.0/24"
         }
     }
 }
