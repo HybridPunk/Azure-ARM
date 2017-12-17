@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualNetworks_vnet_192.168.0.0_16_name": {
+            "defaultValue": "vnet_192.168.0.0_16",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/4decaee1-722f-4973-988b-971675db46c9/resourceGroups/rg3_test/providers/Microsoft.Network/virtualNetworks/vnet_192.168.0.0_16'.",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('virtualNetworks_vnet_192.168.0.0_16_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "northeurope",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "5bdc98ce-a005-4024-ba5a-7671af8946bd",
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "192.168.0.0/16"
+                    ]
+                },
+                "subnets": [],
+                "virtualNetworkPeerings": []
+            },
+            "dependsOn": []
+        }
+    ]
+}
