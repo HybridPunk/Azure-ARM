@@ -2,5 +2,24 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "vnet1Name": {
+            "value": "vnet_192.168.0.0_16"
+        },
+        "vnet1Prefix": {
+            "value": "192.168.0.0/16"
+        },
+
+        "sbn1Name": {
+            "value": "sbn_192.168.1.0_24"
+        },
+        "sbn1Prefix": {
+            "value": "192.168.1.0/24"
+        },
+        "sbn2Name": {
+            "value": "sbn_192.168.2.0_24"
+        },
+        "sbn2Prefix": {
+            "value": "192.168.2.0/24"
+        }
     }
 }
