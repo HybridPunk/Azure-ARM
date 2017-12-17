@@ -2,7 +2,7 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "vnet_192.168.0.0_16": {
+        "vnet_1": {
             "defaultValue": "vnet_192.168.0.0_16",
             "type": "string"
         }
@@ -12,7 +12,7 @@
         {
             "comments": "Generalized from resource: '/subscriptions/4decaee1-722f-4973-988b-971675db46c9/resourceGroups/rg3_test/providers/Microsoft.Network/virtualNetworks/vnet_192.168.0.0_16'.",
             "type": "Microsoft.Network/virtualNetworks",
-            "name": "[parameters('vnet_192.168.0.0_16')]",
+            "name": "[parameters('vnet_1')]",
             "apiVersion": "2017-06-01",
             "location": "northeurope",
             "scale": null,
