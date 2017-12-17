@@ -47,10 +47,10 @@ param(
  $parametersFilePath = "parameters.json",
 
  [string]
- $templateFileUri ="",
+ $templateFileUri ="https://github.com/HybridPunk/Azure-ARM/blob/master/DeployVnet/deployVnetTemplate.json",
  
  [string]
- $parametersFileUri = ""
+ $parametersFileUri = "https://github.com/HybridPunk/Azure-ARM/blob/master/DeployVnet/deployVnetParameters.json"
 )
 
 <#
