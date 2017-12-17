@@ -9,7 +9,6 @@
             "name": "vnet_192.168.0.0_16",
             "apiVersion": "2017-06-01",
             "location": "northeurope",
-            "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
                 "resourceGuid": "5bdc98ce-a005-4024-ba5a-7671af8946bd",
