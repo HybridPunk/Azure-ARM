@@ -2,7 +2,7 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "vn_popoc_dmz_192.168.99.0_28_name": {
+        "vn_dmz_192.168.99.0_28_name": {
             "defaultValue": "vn_name",
             "type": "string"
         },
@@ -10,17 +10,24 @@
             "defaultValue": "North Europe",
             "type": "string"
         },
-        "vn_popoc_dmz_192.168.99.0_28_prefix": {
+        "vn_dmz_192.168.99.0_28_prefix": {
             "defaultValue": "192.168.99.0/28",
             "type":"string"
+        },
+        "sn_192.168.99.0_29_name":{
+            "defaultValue": " ",
+            "type": "string"
+        },
+        "sn_192.168.99.0_29_prefix":{
+            "defaultValue": " ",
+            "type": "string"
         }
-
     },
     "variables": {},
     "resources": [
         {
             "type": "Microsoft.Network/virtualNetworks",
-            "name": "[parameters('vn_popoc_dmz_192.168.99.0_28_name')]",
+            "name": "[parameters('vn_dmz_192.168.99.0_28_name')]",
             "apiVersion": "2018-02-01",
             "location":"[parameters('location')]",
             "tags": {
@@ -29,10 +36,21 @@
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
-                        "[parameters('vn_popoc_dmz_192.168.99.0_28_prefix')]"
+                        "[parameters('vn_dmz_192.168.99.0_28_prefix')]"
                     ]
-                }
+                },
+                "subnets":[
+                    {  
+                        "name":"[parameters('sn_192.168.99.0_29_name')]",
+                        "type": "Microsoft.Network/virtualNetworks/subnets",
+                           "apiVersion": "2017-10-01",
+                            "properties": {
+                             "addressPrefix": "[parameters('sn_192.168.99.0_29_prefix')]"
+                        }
+                    }    
+                ]
             },
+            
             "dependsOn": []
         }
     ]
