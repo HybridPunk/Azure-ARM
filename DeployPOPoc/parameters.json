@@ -3,10 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "virtualNetworks_vn_popoc_dmz_192.168.99.0_28_name": {
-            "value": null
+            "value": "vn_popoc_dmz_192.168.99.0_28"
         },
         "subnets_sbn_popoc_192.168.99.0_29_name": {
-            "value": null
+            "value": "sbn_popoc_192.168.99.0_29"
         }
     }
 }
