@@ -3,15 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vn_popoc_dmz_192.168.99.0_28_name": {
-            "defaultValue": "vn-popoc-dmz-192.168.99.0-28",
-            "type": "String"
-        },
-        "vn_popoc_dmz_192.168.99.0_29_prefix": {
-            "defaultValue": "192.168.99.0/29",
-            "type": "String"
-        },
-        "sn_popoc_192.168.99.0_29_name": {
-            "defaultValue": "sn-popoc-192.168.99.0-29",
+            "defaultValue": "vnet name",
             "type": "String"
         }
     },
@@ -23,32 +15,8 @@
             "apiVersion": "2018-02-01",
             "location": "northeurope",            
             "properties": {
-                "addressSpace": {
-                    "addressPrefixes": [
-                        "[parameters('vn_popoc_dmz_192.168.99.0_29_prefix')]"
-                    ]                    
                 },
-                "subnets": [
-                    {
-                        "name": "sn-popoc-192.168.99.0-29"
-                    }
-                ]
-            },
-            "dependsOn": [],
-            "tags":{
-                "project":"post_office_poc"
-            }
-        },
-        {
-            "name": "[concat(parameters('vn_popoc_dmz_192.168.99.0_28_name'), '/', parameters('sn_popoc_192.168.99.0_29_name'))]",
-            "type": "Microsoft.Network/virtualNetworks/subnets",
-            "apiVersion": "2018-02-01",
-            "properties": {
-                "addressPrefix": "192.168.99.0/29"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks', parameters('vn_popoc_dmz_192.168.99.0_28_name'))]"
-            ]
+            "dependsOn": []
         }
     ]
 }
