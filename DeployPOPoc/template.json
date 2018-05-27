@@ -2,12 +2,12 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "virtualNetworks_vn_popoc_dmz_192.168.99.0_28_name": {
+        "vn_popoc_dmz_192.168.99.0_28_name": {
             "defaultValue": "vn-popoc-dmz-192.168.99.0-28",
             "type": "String"
         },
-        "subnets_sbn_popoc_192.168.99.0_29_name": {
-            "defaultValue": "sbn-popoc-192.168.99.0-29",
+        "sn_popoc_192.168.99.0_29_name": {
+            "defaultValue": "sn-popoc-192.168.99.0-29",
             "type": "String"
         }
     },
@@ -16,7 +16,7 @@
         {
             "comments": "Generalized from resource: '/subscriptions/4decaee1-722f-4973-988b-971675db46c9/resourceGroups/rg3-popoc/providers/Microsoft.Network/virtualNetworks/vn-popoc-dmz-192.168.99.0-28'.",
             "type": "Microsoft.Network/virtualNetworks",
-            "name": "[parameters('virtualNetworks_vn_popoc_dmz_192.168.99.0_28_name')]",
+            "name": "[parameters('vn_popoc_dmz_192.168.99.0_28_name')]",
             "apiVersion": "2018-02-01",
             "location": "northeurope",
             "scale": null,
@@ -30,7 +30,7 @@
                 },
                 "subnets": [
                     {
-                        "name": "sbn-popoc-192.168.99.0-29",
+                        "name": "sn-popoc-192.168.99.0-29",
                         "etag": "W/\"605dde5a-7591-4c79-b42b-69cf0483bb38\"",
                         "properties": {
                             "provisioningState": "Succeeded",
@@ -45,9 +45,9 @@
             "dependsOn": []
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/4decaee1-722f-4973-988b-971675db46c9/resourceGroups/rg3-popoc/providers/Microsoft.Network/virtualNetworks/vn-popoc-dmz-192.168.99.0-28/subnets/sbn-popoc-192.168.99.0-29'.",
+            "comments": "Generalized from resource: '/subscriptions/4decaee1-722f-4973-988b-971675db46c9/resourceGroups/rg3-popoc/providers/Microsoft.Network/virtualNetworks/vn-popoc-dmz-192.168.99.0-28/subnets/sn-popoc-192.168.99.0-29'.",
             "type": "Microsoft.Network/virtualNetworks/subnets",
-            "name": "[concat(parameters('virtualNetworks_vn_popoc_dmz_192.168.99.0_28_name'), '/', parameters('subnets_sbn_popoc_192.168.99.0_29_name'))]",
+            "name": "[concat(parameters('vn_popoc_dmz_192.168.99.0_28_name'), '/', parameters('sn_popoc_192.168.99.0_29_name'))]",
             "apiVersion": "2018-02-01",
             "scale": null,
             "properties": {
@@ -55,7 +55,7 @@
                 "addressPrefix": "192.168.99.0/29"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_vn_popoc_dmz_192.168.99.0_28_name'))]"
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('vn_popoc_dmz_192.168.99.0_28_name'))]"
             ]
         }
     ]

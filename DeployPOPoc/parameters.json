@@ -2,11 +2,11 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "virtualNetworks_vn_popoc_dmz_192.168.99.0_28_name": {
+        "vn_popoc_dmz_192.168.99.0_28_name": {
             "value": "vn_popoc_dmz_192.168.99.0_28"
         },
-        "subnets_sbn_popoc_192.168.99.0_29_name": {
-            "value": "sbn_popoc_192.168.99.0_29"
+        "sn_popoc_192.168.99.0_29_name": {
+            "value": "sn_popoc_192.168.99.0_29"
         }
     }
 }
