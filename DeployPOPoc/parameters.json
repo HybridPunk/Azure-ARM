@@ -5,6 +5,9 @@
         "vn_popoc_dmz_192.168.99.0_28_name": {
             "value": "vn_popoc_dmz_192.168.99.0_28"
         },
+        "vn_popoc_192.168.99.0_29_prefix": {
+            "value": "192.168.99.0/28"
+        },
         "sn_popoc_192.168.99.0_29_name": {
             "value": "sn_popoc_192.168.99.0_29"
         }

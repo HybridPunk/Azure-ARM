@@ -6,6 +6,10 @@
             "defaultValue": "vn-popoc-dmz-192.168.99.0-28",
             "type": "String"
         },
+        "vn_popoc_dmz_192.168.99.0_29_prefix": {
+            "defaultValue": "192.168.99.0/29",
+            "type": "String"
+        },
         "sn_popoc_192.168.99.0_29_name": {
             "defaultValue": "sn-popoc-192.168.99.0-29",
             "type": "String"
@@ -14,7 +18,6 @@
     "variables": {},
     "resources": [
         {
-            "comments": "Generalized from resource: '/subscriptions/4decaee1-722f-4973-988b-971675db46c9/resourceGroups/rg3-popoc/providers/Microsoft.Network/virtualNetworks/vn-popoc-dmz-192.168.99.0-28'.",
             "type": "Microsoft.Network/virtualNetworks",
             "name": "[parameters('vn_popoc_dmz_192.168.99.0_28_name')]",
             "apiVersion": "2018-02-01",
@@ -25,8 +28,8 @@
                 "resourceGuid": "db4fabf3-cbd9-425a-9974-9adc3640878e",
                 "addressSpace": {
                     "addressPrefixes": [
-                        "192.168.99.0/28"
-                    ]
+                        "[parameters('vn_popoc_dmz_192.168.99.0_29_prefix')]"
+                    ]                    
                 },
                 "subnets": [
                     {
@@ -34,7 +37,7 @@
                         "etag": "W/\"605dde5a-7591-4c79-b42b-69cf0483bb38\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "addressPrefix": "192.168.99.0/29"
+                            "addressPrefix": "192.168.99.1/29"
                         }
                     }
                 ],
@@ -59,10 +62,7 @@
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Network/virtualNetworks', parameters('vn_popoc_dmz_192.168.99.0_28_name'))]"
-            ],
-            "tags": {
-                "project":"post_office_poc"
-            }
+            ]
         }
     ]
 }
