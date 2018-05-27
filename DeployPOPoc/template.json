@@ -42,15 +42,13 @@
                 "subnets":[
                     {  
                         "name":"[parameters('sn_192.168.99.0_29_name')]",
-                        "type": "Microsoft.Network/virtualNetworks/subnets",
-                           "apiVersion": "2017-10-01",
-                            "properties": {
+                             "properties": {
                              "addressPrefix": "[parameters('sn_192.168.99.0_29_prefix')]"
                         }
                     }    
                 ]
             },
-            
+
             "dependsOn": []
         }
     ]
