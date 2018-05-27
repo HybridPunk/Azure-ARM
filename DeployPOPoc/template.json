@@ -3,8 +3,8 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vn_popoc_dmz_192.168.99.0_28_name": {
-            "defaultValue": "vnet name",
-            "type": "String"
+            "defaultValue": "vn_name",
+            "type": "string"
         }
     },
     "variables": {},
@@ -18,7 +18,7 @@
                     "addressPrefixes": [
                         "[parameters('vn_popoc_dmz_192.168.99.0_28_name')]"
                     ]
-                },
+                }
             },
             "dependsOn": []
         }
