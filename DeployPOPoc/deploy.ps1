@@ -41,10 +41,10 @@ param(
  $deploymentName,
 
  [string]
- $templateFilePath = "template.json",
+ $templateFileUri ="https://github.com/HybridPunk/Azure-ARM/blob/master/DeployVnet/deployVnetTemplate.json",
 
  [string]
- $parametersFilePath = "parameters.json"
+ $parametersFileUri = "https://github.com/HybridPunk/Azure-ARM/blob/master/DeployVnet/deployVnetParameters.json"
 )
 
 <#
@@ -98,7 +98,7 @@ else{
 # Start the deployment
 Write-Host "Starting deployment...";
 if(Test-Path $parametersFilePath) {
-    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -TemplateParameterFile $parametersFilePath;
+    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateFileUri -TemplateParameterUri $parametersFileUri -DeploymentDebugLogLevel All;
 } else {
-    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath;
+    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateFileUri -DeploymentDebugLogLevel All;
 }
