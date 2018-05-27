@@ -12,10 +12,14 @@
         {
             "type": "Microsoft.Network/virtualNetworks",
             "name": "[parameters('vn_popoc_dmz_192.168.99.0_28_name')]",
-            "apiVersion": "2018-02-01",
-            "location": "northeurope",            
+            "apiVersion": "2018-02-01",                       
             "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[parameters('vn_popoc_dmz_192.168.99.0_28_name')]"
+                    ]
                 },
+            },
             "dependsOn": []
         }
     ]
