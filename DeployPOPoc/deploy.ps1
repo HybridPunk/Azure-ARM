@@ -41,10 +41,10 @@ param(
  $deploymentName,
 
  [string]
- $templateFileUri ="https://github.com/HybridPunk/Azure-ARM/blob/master/DeployVnet/deployVnetTemplate.json",
+ $templateFileUri ="https://github.com/HybridPunk/Azure-ARM/blob/master/DeployPOPoc/template.json",
 
  [string]
- $parametersFileUri = "https://github.com/HybridPunk/Azure-ARM/blob/master/DeployVnet/deployVnetParameters.json"
+ $parametersFileUri = "https://github.com/HybridPunk/Azure-ARM/blob/master/DeployPOPoc/parameters.json"
 )
 
 <#
