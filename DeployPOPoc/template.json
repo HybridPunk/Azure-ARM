@@ -11,7 +11,6 @@
             "type": "string"
         },
         "vn_dmz_192.168.99.0_28_prefix": {
-            "defaultValue": "192.168.99.0/28",
             "type":"string"
         },
         "sn_192.168.99.0_29_name":{
