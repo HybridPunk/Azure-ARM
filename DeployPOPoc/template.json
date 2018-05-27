@@ -5,19 +5,31 @@
         "vn_popoc_dmz_192.168.99.0_28_name": {
             "defaultValue": "vn_name",
             "type": "string"
+        },
+        "location":{
+            "defaultValue": "North Europe",
+            "type": "string"
+        },
+        "vn_popoc_dmz_192.168.99.0_28_prefix": {
+            "defaultValue": "192.168.99.0/28",
+            "type":"string"
         }
+
     },
     "variables": {},
     "resources": [
         {
             "type": "Microsoft.Network/virtualNetworks",
-            "name": "vn_popoc_dmz_192.168.99.0_28",
+            "name": "[parameters('vn_popoc_dmz_192.168.99.0_28_name')]",
             "apiVersion": "2018-02-01",
-            "location":"North Europe",
+            "location":"[parameters('location')]",
+            "tags": {
+                "project":"Post Office PoC"
+            },
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
-                        "vn_popoc_dmz_192.168.99.0_28"
+                        "[parameters('vn_popoc_dmz_192.168.99.0_28_prefix')]"
                     ]
                 }
             },
