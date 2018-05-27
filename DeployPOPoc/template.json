@@ -40,9 +40,12 @@
                 ],
                 "virtualNetworkPeerings": [],
                 "enableDdosProtection": false,
-                "enableVmProtection": false
+                "enableVmProtection": false                
             },
-            "dependsOn": []
+            "dependsOn": [],
+            "tags":{
+                "project":"post_office_poc"
+            }
         },
         {
             "comments": "Generalized from resource: '/subscriptions/4decaee1-722f-4973-988b-971675db46c9/resourceGroups/rg3-popoc/providers/Microsoft.Network/virtualNetworks/vn-popoc-dmz-192.168.99.0-28/subnets/sn-popoc-192.168.99.0-29'.",
@@ -56,7 +59,10 @@
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Network/virtualNetworks', parameters('vn_popoc_dmz_192.168.99.0_28_name'))]"
-            ]
+            ],
+            "tags": {
+                "project":"post_office_poc"
+            }
         }
     ]
 }
