@@ -34,25 +34,30 @@ shift $((OPTIND-1))
 
 #Prompt for parameters is some required parameters are missing
 if [[ -z "$subscriptionId" ]]; then
-	echo "Subscription Id:"
+	echo "Your subscription ID can be looked up with the CLI using: az account show --out json "
+	echo "Enter your subscription ID:"
 	read subscriptionId
 	[[ "${subscriptionId:?}" ]]
 fi
 
 if [[ -z "$resourceGroupName" ]]; then
-	echo "ResourceGroupName:"
+	echo "This script will look for an existing resource group, otherwise a new one will be created "
+	echo "You can create new resource groups with the CLI using: az group create "
+	echo "Enter a resource group name"
 	read resourceGroupName
 	[[ "${resourceGroupName:?}" ]]
 fi
 
 if [[ -z "$deploymentName" ]]; then
-	echo "DeploymentName:"
+	echo "Enter a name for this deployment:"
 	read deploymentName
 fi
 
 if [[ -z "$resourceGroupLocation" ]]; then
-	echo "Enter a location below to create a new resource group else skip this"
-	echo "ResourceGroupLocation:"
+	echo "If creating a *new* resource group, you need to set a location "
+	echo "You can lookup locations with the CLI using: az account list-locations "
+	
+	echo "Enter resource group location:"
 	read resourceGroupLocation
 fi
 
@@ -86,7 +91,7 @@ then
 fi
 
 #set the default subscription id
-az account set --name $subscriptionId
+az account set --subscription $subscriptionId
 
 set +e
 
@@ -108,7 +113,7 @@ fi
 echo "Starting deployment..."
 (
 	set -x
-	az group deployment create --name $deploymentName --resource-group $resourceGroupName --template-file $templateFilePath --parameters $parametersFilePath
+	az group deployment create --name "$deploymentName" --resource-group "$resourceGroupName" --template-file "$templateFilePath" --parameters "@${parametersFilePath}"
 )
 
 if [ $?  == 0 ];
