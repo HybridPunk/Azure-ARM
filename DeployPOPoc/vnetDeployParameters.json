@@ -8,8 +8,8 @@
         "location":{
             "value": "UK West"
         },
-        "vn_dmz_192.168.99.0_28_prefix": {
-            "value": "172.16.0.0_26"
+        "vn_dmz_172.16.0.0_26_prefix": {
+            "value": "172.16.0.0/26"
         }
     }
 }
