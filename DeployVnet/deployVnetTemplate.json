@@ -1,0 +1,67 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vnet1Name": {
+            "defaultValue": "vnetnameDefault",
+            "type": "string"
+        },
+        "vnet1Prefix": {
+            "defaultValue": "vnetPrefixDefault",
+            "type": "string"
+        },
+        "sbn1Name": {
+            "defaultValue": "sbnNameDefault",
+            "type": "string"
+        },
+        "sbn1Prefix": {
+            "defaultValue": "sbnPrefixDefault",
+            "type": "string"
+        },
+        "sbn2Name": {
+            "defaultValue": "sbnNameDefault",
+            "type": "string"
+        },
+        "sbn2Prefix": {
+            "defaultValue": "sbnPrefixDefault",
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/4decaee1-722f-4973-988b-971675db46c9/resourceGroups/rg3_test/providers/Microsoft.Network/virtualNetworks/vnet_192.168.0.0_16'.",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('vnet1Name')]",
+            "apiVersion": "2017-06-01",
+            "location": "northeurope",
+            "scale": null,
+            "tags": {"costCentre":"test"},
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "5bdc98ce-a005-4024-ba5a-7671af8946bd",
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[parameters('vnet1Prefix')]"
+                    ]
+                },
+                "subnets": [
+                    {
+                      "name": "[parameters('sbn1Name')]",
+                      "properties": {
+                        "addressPrefix": "192.168.1.0/24"
+                      }
+                    },
+                    {
+                        "name": "[parameters('sbn2Name')]",
+                        "properties": {
+                          "addressPrefix": "192.168.2.0/24"
+                        }
+                      }
+                  ],
+                "virtualNetworkPeerings": []
+            },
+            "dependsOn": []
+        }
+    ]
+}

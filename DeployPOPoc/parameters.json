@@ -1,0 +1,24 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vn_dmz_192.168.99.0_28_name": {
+            "value": "vn_dmz_192.168.99.0_28"
+        },
+        "location":{
+            "value": "North Europe"
+        },
+        "vn_dmz_192.168.99.0_28_prefix": {
+            "value": "192.168.99.0/28"
+        },
+        "sn_192.168.99.0_29_name":{
+            "value": "sn_192.168.99.0_29"
+        },
+        "sn_192.168.99.0_29_prefix":{
+            "value": "192.168.99.0/29"
+        },
+        "nsg_sn_192.168.99.0_29_name":{
+            "value": "nsg_sn_192.168.99.0_29"
+        }
+    }
+}

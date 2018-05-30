@@ -41,17 +41,10 @@ param(
  $deploymentName,
 
  [string]
-<<<<<<< HEAD
- $templateFilePath = "template.json",
+ $templateFileUri ="https://github.com/HybridPunk/Azure-ARM/blob/master/DeployPOPoc/template.json",
 
  [string]
- $parametersFilePath = "parameters.json"
-=======
- $templateFileUri ="https://github.com/HybridPunk/Azure-ARM/blob/master/DeployVnet/deployVnetTemplate.json",
- 
- [string]
- $parametersFileUri = "https://github.com/HybridPunk/Azure-ARM/blob/master/DeployVnet/deployVnetParameters.json"
->>>>>>> 7f7ea5930fe034bf6afe18b505d7a33670465442
+ $parametersFileUri = "https://github.com/HybridPunk/Azure-ARM/blob/master/DeployPOPoc/parameters.json"
 )
 
 <#
@@ -94,10 +87,7 @@ if($resourceProviders.length) {
 $resourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ErrorAction SilentlyContinue
 if(!$resourceGroup)
 {
-    Write-Host "Resource group '$resourceGroupName' does not exist. To create a new resource group, please enter a location.";
-    if(!$resourceGroupLocation) {
-        $resourceGroupLocation = Read-Host "resourceGroupLocation";
-    }
+    $resourceGroupLocation = "NorthEurope";
     Write-Host "Creating resource group '$resourceGroupName' in location '$resourceGroupLocation'";
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
 }
@@ -108,13 +98,7 @@ else{
 # Start the deployment
 Write-Host "Starting deployment...";
 if(Test-Path $parametersFilePath) {
-<<<<<<< HEAD
-    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -TemplateParameterFile $parametersFilePath;
-} else {
-    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath;
-=======
     New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateFileUri -TemplateParameterUri $parametersFileUri -DeploymentDebugLogLevel All;
 } else {
     New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateFileUri -DeploymentDebugLogLevel All;
->>>>>>> 7f7ea5930fe034bf6afe18b505d7a33670465442
 }

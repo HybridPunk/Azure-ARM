@@ -5,6 +5,10 @@
         "location": {
             "type": "string"
         },
+        "resourceGroup":{
+            "type": "string",
+            "defaultValue": "rg3_test"
+        },
         "virtualMachineName": {
             "type": "string"
         },
@@ -14,31 +18,23 @@
         "adminUsername": {
             "type": "string"
         },
+        "adminPassword": {
+            "type": "securestring"
+        },
         "virtualNetworkName": {
+            "defaultValue": "vnetPrefixDefault",
+            "type": "string"
+        },        
+        "subnetName": {
             "type": "string"
         },
         "networkInterfaceName": {
             "type": "string"
-        },
-        "networkSecurityGroupName": {
-            "type": "string"
-        },
-        "adminPassword": {
-            "type": "securestring"
-        },
-        "diagnosticsStorageAccountName": {
-            "type": "string"
-        },
-        "diagnosticsStorageAccountId": {
-            "type": "string"
-        },
-        "subnetName": {
-            "type": "string"
         }
     },
     "variables": {
-        "vnetId": "[resourceId('rg_1','Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-        "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]"
+        "vnetID": "[resourceId(parameters('resourceGroup'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
+         "subnet1Ref": "[concat(variables('vnetID'),'/subnets/', parameters('subnetName'))]"
     },
     "resources": [
         {
@@ -46,9 +42,6 @@
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2016-04-30-preview",
             "location": "[parameters('location')]",
-            "dependsOn": [
-                "[concat('Microsoft.Network/networkInterfaces/', parameters('networkInterfaceName'))]"
-            ],
             "properties": {
                 "osProfile": {
                     "computerName": "[parameters('virtualMachineName')]",
@@ -69,7 +62,7 @@
                         "version": "latest"
                     },
                     "osDisk": {
-                        "createOption": "fromImage",
+                        "createOption": "FromImage",
                         "managedDisk": {
                             "storageAccountType": "Premium_LRS"
                         }
@@ -83,35 +76,17 @@
                         }
                     ]
                 },
-                "diagnosticsProfile": {
-                    "bootDiagnostics": {
-                        "enabled": true,
-                        "storageUri": "[reference(resourceId('rg_1', 'Microsoft.Storage/storageAccounts', parameters('diagnosticsStorageAccountName')), '2015-06-15').primaryEndpoints['blob']]"
-                    }
-                }
-            }
-        },
-        {
-            "name": "[parameters('networkInterfaceName')]",
-            "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2016-09-01",
-            "location": "[parameters('location')]",
-            "dependsOn": [],
-            "properties": {
-                "ipConfigurations": [
+                "ipConfigurations": [   
                     {
                         "name": "ipconfig1",
                         "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
                             "subnet": {
-                                "id": "[variables('subnetRef')]"
-                            },
-                            "privateIPAllocationMethod": "Dynamic"
+                                "id": "[variables('subnet1Ref')]"
+                            }
                         }
                     }
-                ],
-                "networkSecurityGroup": {
-                    "id": "[resourceId('rg_1', 'Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
-                }
+                ]
             }
         }
     ],
