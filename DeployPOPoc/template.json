@@ -3,24 +3,24 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vn_dmz_192.168.99.0_28_name": {
-            "defaultValue": "vn_name",
             "type": "string"
         },
         "location":{
-            "defaultValue": "North Europe",
             "type": "string"
         },
         "vn_dmz_192.168.99.0_28_prefix": {
             "type":"string"
         },
         "sn_192.168.99.0_29_name":{
-            "defaultValue": " ",
             "type": "string"
         },
         "sn_192.168.99.0_29_prefix":{
-            "defaultValue": " ",
+            "type": "string"
+        },
+        "nsg_sn_192.168.99.0_29_name":{
             "type": "string"
         }
+
     },
     "variables": {},
     "resources": [
@@ -42,13 +42,44 @@
                     {  
                         "name":"[parameters('sn_192.168.99.0_29_name')]",
                              "properties": {
-                             "addressPrefix": "[parameters('sn_192.168.99.0_29_prefix')]"
-                        }
+                                "addressPrefix": "[parameters('sn_192.168.99.0_29_prefix')]"
+                                }   
                     }    
                 ]
             },
+        "dependsOn": []
+        },
+        {    
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('nsg_sn_192.168.99.0_29_name')]",
+            "location":"[parameters('location')]",
+            "apiVersion": "2018-02-01",
+                "properties": {
+                    "securityRules": [
+                        {
+                            "priority":"1000",
+                            "name": "denyAllInbound",
+                            "properties":{
+                            "description": "Deny *.*",
 
-            "dependsOn": []
+                            "sourceAddressPrefix": "*",
+                            "sourcePortRange": "*",
+                            
+                            "destinationAddressPrefix": "*",                          
+                            "destinationPortRange": "*",
+                            
+                            "access": "Deny",
+                            "direction": "Inbound",
+                            "protocol": "*"
+                            
+                            }
+                        
+                        }
+                    ],
+                    
+                    "defaultSecurityRules": []
+                },
+        "dependsOn": []
         }
     ]
 }
