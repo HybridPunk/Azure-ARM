@@ -1,0 +1,15 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vn_dmz_172.16.0.0_26_name": {
+            "value": "vn_dmz_172.16.0.0_26"
+        },
+        "location":{
+            "value": "UK West"
+        },
+        "vn_dmz_192.168.99.0_28_prefix": {
+            "value": "172.16.0.0_26"
+        }
+    }
+}
